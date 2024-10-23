@@ -30,3 +30,7 @@ body {
 #heroTitle.custom-font {
   font-family: "CustomFont", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}

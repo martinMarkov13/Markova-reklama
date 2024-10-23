@@ -5,7 +5,7 @@ import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
   return (
-    <section className="h-screen">
+    <section className="h-screen" id="home">
       <NavBar />
 
       <div className=" sm:grid-cols-12 p-6 mt-16 w-full">

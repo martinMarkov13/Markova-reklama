@@ -5,10 +5,6 @@ import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
   {
-    title: "Начало",
-    path: "#home",
-  },
-  {
     title: "За нас",
     path: "#about",
   },
@@ -18,7 +14,7 @@ const navLinks = [
   },
   {
     title: "Контакти",
-    path: "#contact",
+    path: "#contacts",
   },
 ];
 
@@ -86,7 +82,7 @@ const NavBar = () => {
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks}/> : null}
+      {navbarOpen ? <MenuOverlay links={navLinks} setNavbarOpen={setNavbarOpen}/> : null}
     </nav>
   );
 };
