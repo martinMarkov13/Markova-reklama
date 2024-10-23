@@ -1,23 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
 
 const navLinks = [
   {
-    title: "Home",
+    title: "Начало",
     path: "#home",
   },
   {
-    title: "About",
+    title: "За нас",
     path: "#about",
   },
   {
-    title: "Projects",
+    title: "Проекти",
     path: "#projects",
   },
   {
-    title: "Contact",
+    title: "Контакти",
     path: "#contact",
   },
 ];
@@ -25,8 +25,22 @@ const navLinks = [
 const NavBar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setNavbarOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-opacity-100">
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-opacity-100 bg-black">
       <div className="flex flex-wrap items-center justify-between mx-auto p-8">
         <div></div>
         <div className="mobile-menu block md:hidden">
@@ -46,7 +60,7 @@ const NavBar = () => {
               </svg>
             </button>
           ) : (
-            <button onClick={()=> setNavbarOpen(false)} className=" flex items-center  px-3 py-2 border rounder border-slate-200  text-slate-200 hover:text-white hover:border-white">
+            <button onClick={()=> setNavbarOpen(false)} className=" flex items-center px-3 py-2 border rounder border-slate-200  text-slate-200 hover:text-white hover:border-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
@@ -65,7 +79,7 @@ const NavBar = () => {
         <div className="menu hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((link, index) => (
-              <li key={index} className="font-bold" >
+              <li key={index} className="font-bold">
                 <NavLink  href={link.path} title={link.title} />
               </li>
             ))}

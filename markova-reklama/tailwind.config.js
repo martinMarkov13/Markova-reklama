@@ -12,7 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       backgroundImage:{
-        'hero-pattern': "url('/images/logo-markova-reklama.png')",
+        'hero-pattern': "url('/images/background.png')",
       }
     },
   },
