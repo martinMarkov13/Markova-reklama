@@ -8,7 +8,7 @@ const ProjectCard = ({ image, title, youtubeId }) => {
     <div>
       <div
         className="h-52 md:h-72 rounded-t-xl relative group"
-        style={{ background: `url(${image})`, backgroundSize: 'cover' }}
+        style={{ background: `url(${image}) no-repeat center center `, backgroundSize: 'contain' }}
       >
         {isVideoPlaying ? (
           <iframe
